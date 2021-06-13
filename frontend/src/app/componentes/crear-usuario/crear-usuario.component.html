@@ -1,0 +1,56 @@
+<form [formGroup]="formulario"  >
+    <div id="caja0">
+        <ul>
+            <li>
+                <label for="nombre">Nombre</label>
+                <input type="text" formControlName="nombre" required>
+            </li>
+            <li>
+                <label for="apellido">Apellido</label>
+                <input type="text" formControlName="apellido" required>
+            </li>
+            <li>
+                <label for="residencia">Direccion residencia</label>
+                <input type="text" formControlName="residencia" required>
+            </li>
+            <li>
+                <label for="region">Region</label>
+
+                <select name="region" id="regiones" formControlName="region">
+                    <option value="arica">Arica</option>
+                    <option value="tarapaca">Tarapaca</option>
+                    <option value="antofagasta">Antofagasta</option>
+                    
+                </select>
+            </li>
+            <li>
+                <label for="comuna">Comuna</label>
+
+                <select name="comuna" id="comunas" formControlName="comuna">
+                    <option value="abierto">Abierto</option>
+                    <option value="proceso">En proceso</option>
+                    <option value="cerrado">Cerrado</option>
+                    
+                </select>
+            </li>
+            <li>
+                <label for="correo">Correo Electronico</label>
+                <input type="text" formControlName="correo" required>
+            </li>
+            <li>
+                <label for="password">Contraseña</label>
+                <input type="text" formControlName="password" required>
+            </li>
+            <li>
+                <label for="cpassword">Confirmar Contraseña</label>
+                <input type="text" formControlName="cpassword" required>
+            </li>
+            <li>
+                <!--Boton para crear nota -->
+                <a [routerLink]="['/']" routerLinkActive="router-link-active">
+                    <button id="crear" type="submit"  (click)="Crear()" mat-raised-button color="warn">Crear usuario</button>
+                </a>
+            </li>
+        </ul>
+    </div>
+</form>

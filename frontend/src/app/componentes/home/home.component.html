@@ -1,1 +1,26 @@
-<p>home works!</p>
+<form [formGroup]="formulario"  >
+    <div id="caja0">
+        <ul>
+            <li>
+                <label for="correo">Correo electronico</label>
+                <input type="text" formControlName="correo" value="example@mail.com" required>
+            </li>
+            <li>
+                <label for="password">Contraseña</label>
+
+                <input type="text" formControlName="password" required>
+            </li>
+            <li>
+                <a [routerLink]="['/crear']" routerLinkActive="router-link-active">
+                    Crear usuario
+                </a>
+            </li>
+            <li>
+                <!--Boton para crear nota -->
+                <a [routerLink]="['/crear']" routerLinkActive="router-link-active">
+                    <button id="ingresar" type="submit"  (click)="ingresar()" mat-raised-button color="warn">Iniciar Sesion</button>
+                </a>
+            </li>
+        </ul>
+    </div>
+</form>
