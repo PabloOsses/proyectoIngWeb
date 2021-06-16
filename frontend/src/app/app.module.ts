@@ -14,13 +14,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { ClienteVerReclamosComponent } from './componentes/cliente-ver-reclamos/cliente-ver-reclamos.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    CrearUsuarioComponent
+    CrearUsuarioComponent,
+    ClienteVerReclamosComponent
   ],
   imports: [
     BrowserModule,

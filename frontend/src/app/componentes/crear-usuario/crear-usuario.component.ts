@@ -10,6 +10,7 @@ import {CrearclienteService} from '../../servicios/crearcliente.service';
 })
 export class CrearUsuarioComponent implements OnInit {
   formulario:FormGroup;
+  rut:AbstractControl;
   nombre:AbstractControl;
   apellido:AbstractControl;
   residencia:AbstractControl;
@@ -24,6 +25,7 @@ export class CrearUsuarioComponent implements OnInit {
 
   constructor(private fb:FormBuilder, private route:ActivatedRoute,private servicioCliente:CrearclienteService) {
     this.formulario=this.fb.group({
+      rut:["",[Validators.required, Validators.maxLength(30)]],
       nombre:["",[Validators.required, Validators.maxLength(30)]],
       apellido:["",[Validators.required, Validators.maxLength(30)]],
       /*[,[validaciones(en este caso requerido y maximo de caracteres)]] */
@@ -35,6 +37,7 @@ export class CrearUsuarioComponent implements OnInit {
       password:["",[Validators.required, Validators.maxLength(30)]],
       cpassword:["",[Validators.required, Validators.maxLength(30)]],
     });
+    this.rut=this.formulario.controls["rut"];
     this.nombre=this.formulario.controls["nombre"];
     this.apellido=this.formulario.controls["apellido"];
     this.residencia=this.formulario.controls["residencia"];
@@ -46,7 +49,7 @@ export class CrearUsuarioComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+    this.rut=this.formulario.get('rut') as FormGroup;
     this.nombre=this.formulario.get('nombre') as FormGroup;
     this.apellido=this.formulario.get('apellido') as FormGroup;
     this.residencia=this.formulario.get('residencia') as FormGroup;
@@ -59,7 +62,7 @@ export class CrearUsuarioComponent implements OnInit {
   Crear(){
     //console.log('creado usuario: '+ this.nombre.value);
     var test: Cliente= {
-      
+      rut:this.rut.value,
       nombre:this.nombre.value,
       apellido:this.apellido.value,
       residencia:this.residencia.value,
