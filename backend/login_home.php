@@ -2,12 +2,13 @@
 
 header('Content-type: application/json');
 header('Access-Control-Allow-Origin:*');
-
-$json=file_get_contents('php://input','php://input');
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+$json=file_get_contents('php://input');
 //$datos=json_decode($json);
-
+$params = json_decode($json);
 //$correo=$datos[0]->correo;
 //$nombre=$datos[0]->nombre;
+$cheese=json_encode($params);
 echo $json;
 
 /*

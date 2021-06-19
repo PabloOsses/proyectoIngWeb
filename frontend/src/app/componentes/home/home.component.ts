@@ -11,7 +11,8 @@ export class HomeComponent implements OnInit {
   formulario:FormGroup;
   correo:AbstractControl;
   password:AbstractControl;
-
+  lista:Array<String>=[];
+  
   constructor(private fb:FormBuilder, private route:ActivatedRoute, private login:LoginService) {
     this.formulario=this.fb.group({
       correo:["",[Validators.required, Validators.maxLength(30)]],
@@ -32,13 +33,17 @@ export class HomeComponent implements OnInit {
   ingresar(){
     console.log('INGRESAR');
     this.login.validarLogin(this.correo.value,this.password.value).subscribe(datos=>{
-       if (datos== null){
-         console.log("DATOS ESTA VACIO");
+      if (datos == null){
+        console.log("DATOS ESTA VACIO");
       }else{
-        console.log(datos);
-       }
-
-      //console.log("DATO RECIVIDO EN METODO POST"+ datos);
+        console.log("DaTOS correo: "+datos.rut);
+        var rut = datos.rut;
+        console.log("DaTo pass: "+datos.password);
+        this.lista.push(datos.rut);
+        window.location.href="/verreclamos/"+rut;
+      }
+      
+      console.log("lista es "+ this.lista);
     });
   }
 }
