@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *'); 
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-$json=file_get_contents('php://input');//SOLUCIONADO?
+$json=file_get_contents('php://input');
 
 
 $host='localhost';
@@ -11,21 +11,20 @@ $pw='Barco24024qqq';
 $db='prueba4';
 $coneccion = new mysqli($host, $user, $pw, $db);
 $i=0;
-$rut=$_GET["rut"];
-$query = "SELECT * FROM reclamo where rut=$rut ";
+
+$query = "SELECT * FROM usuario WHERE tipo !='administrador' ";
 global $datos;
 global $jsonrespuesta;
 if ($resultado=$coneccion->query($query)) {
     while($fila=$resultado->fetch_object()){
         $usuario=array(
-            "id"=>$fila->id,
             "rut"=>$fila->rut,
-            "categoria"=>$fila->categoria,
-            "prioridad"=>$fila->prioridad,
-            "asunto"=>$fila->asunto,
-            "descripcion"=>$fila->descripcion,
-            "estado"=>$fila->estado,
-            "respuesta"=>$fila->respuesta,
+            "nombre"=>$fila->nombre,
+            "apellido"=>$fila->apellido,
+            "residencia"=>$fila->residencia,
+            "region"=>$fila->region,
+            "comuna"=>$fila->comuna,
+            "correo"=>$fila->correo,
         );
         $datos[$i]=$usuario;
         //$jsusuario=json_encode($usuario);

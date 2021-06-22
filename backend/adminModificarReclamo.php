@@ -18,15 +18,11 @@ if ($coneccion->connect_errno) {
     //echo "error" ;
     exit();
 }
-$rut=$datos[0]->rut;
-$nombre=$datos[0]->nombre;
-$apellido=$datos[0]->apellido;
-$residencia=$datos[0]->residencia;
-$region=$datos[0]->region;
-$comuna=$datos[0]->comuna;
-$correo=$datos[0]->correo;
-$password=$datos[0]->password;
-$query = "INSERT INTO usuario VALUES ('$rut','$nombre', '$apellido', '$residencia','$region','$comuna','$correo','$password','cliente')";
+$id=$datos[0]->id;
+$estado=$datos[0]->estado;
+$respuesta=$datos[0]->respuesta;
+$query="UPDATE reclamo SET estado='$estado', respuesta='$respuesta' WHERE id='$id'";
+//$query = "INSERT INTO usuario VALUES ('$rut','$nombre', '$apellido', '$residencia','$region','$comuna','$correo','$password','cliente')";
 //$query = "INSERT INTO  usuarios VALUES ('Berta', 'euracia', 'bajada','eti','algo','@gmail','12345')";
 if ($coneccion->query($query) === TRUE) {
   //echo "New record created successfully";

@@ -1,0 +1,22 @@
+<ul>
+    
+    <div id="cajaa" *ngFor="let item of lista" >
+        <a [routerLink]="['/admin/editarreclamo',rut,item.id]" routerLinkActive="router-link-active" >
+            <div id="cerrado" >
+                <ul id="vistadatos" >
+                    <li id="titulo">
+                        {{item.id}} 
+                    </li>
+                    <li id="descrip">
+                        {{item.asunto}}
+                    </li>
+                </ul>
+            </div>
+        </a>
+    </div>
+   
+    <li>
+        <button id="salir" type="submit"  (click)="salir()" mat-raised-button color="warn">Salir</button>
+    </li>
+    
+</ul>

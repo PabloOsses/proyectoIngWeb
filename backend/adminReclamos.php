@@ -11,8 +11,8 @@ $pw='Barco24024qqq';
 $db='prueba4';
 $coneccion = new mysqli($host, $user, $pw, $db);
 $i=0;
-$rut=$_GET["rut"];
-$query = "SELECT * FROM reclamo where rut=$rut ";
+
+$query = "SELECT * FROM reclamo";
 global $datos;
 global $jsonrespuesta;
 if ($resultado=$coneccion->query($query)) {

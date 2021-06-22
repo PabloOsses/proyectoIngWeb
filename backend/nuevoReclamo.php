@@ -19,21 +19,25 @@ if ($coneccion->connect_errno) {
     exit();
 }
 $rut=$datos[0]->rut;
-$nombre=$datos[0]->nombre;
-$apellido=$datos[0]->apellido;
-$residencia=$datos[0]->residencia;
-$region=$datos[0]->region;
-$comuna=$datos[0]->comuna;
-$correo=$datos[0]->correo;
-$password=$datos[0]->password;
-$query = "INSERT INTO usuario VALUES ('$rut','$nombre', '$apellido', '$residencia','$region','$comuna','$correo','$password','cliente')";
-//$query = "INSERT INTO  usuarios VALUES ('Berta', 'euracia', 'bajada','eti','algo','@gmail','12345')";
-if ($coneccion->query($query) === TRUE) {
-  //echo "New record created successfully";
+$categoria=$datos[0]->categoria;
+$prioridad=$datos[0]->prioridad;
+$asunto=$datos[0]->asunto;
+$descripcion=$datos[0]->descripcion;
+$estado=$datos[0]->estado;
+$respuesta=$datos[0]->respuesta;
+
+$query = "INSERT INTO reclamo (rut,categoria,prioridad,asunto,descripcion,estado,respuesta) VALUES ('$rut','$categoria', '$prioridad', '$asunto','$descripcion','$estado','$respuesta')";
+
+/*if ($coneccion->query($query) === TRUE) {
+  echo "New record created successfully";
 } else {
   //echo "Error: " . $sql . "<br>" . $conn->error;
+}*/
+if ($resultado=$coneccion->query($query)) {
+ 
+}else{
+  //echo null;
 }
-
 $coneccion->close();
 
 ?>

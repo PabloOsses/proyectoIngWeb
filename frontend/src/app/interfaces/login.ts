@@ -1,4 +1,4 @@
-//datos de inicio sesion
+//NO UTILIZADO , IGNORAR
 export interface Login {
     correo:string;
     password:string;

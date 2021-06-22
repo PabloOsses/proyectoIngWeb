@@ -36,11 +36,17 @@ export class HomeComponent implements OnInit {
       if (datos == null){
         console.log("DATOS ESTA VACIO");
       }else{
-        console.log("DaTOS correo: "+datos.rut);
         var rut = datos.rut;
+        if(datos.tipo==='administrador'){
+          console.log('Bienvenido admin');
+          window.location.href="/verusuarios/"+rut;
+        }else{
+        /*console.log("DaTOS correo: "+datos.rut);
         console.log("DaTo pass: "+datos.password);
+        console.log("DaTo tipo: "+datos.tipo);*/
         this.lista.push(datos.rut);
         window.location.href="/verreclamos/"+rut;
+        }
       }
       
       console.log("lista es "+ this.lista);

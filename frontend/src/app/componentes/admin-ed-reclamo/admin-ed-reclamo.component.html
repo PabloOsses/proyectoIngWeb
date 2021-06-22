@@ -1,0 +1,29 @@
+<!--Pagina donde se edita una nota ya creada-->
+
+<form [formGroup]="formulario">
+    <div id="caja0">
+        <ul>
+            
+            <li>
+                <label for="estados">Estado</label>
+
+                <select name="estados" id="estados" formControlName="estado">
+                    <option value="abierto">Abierto</option>
+                    <option value="proceso">En proceso</option>
+                    <option value="cerrado">Cerrado</option>
+                    
+                </select>
+            </li>
+            <li>
+                <label for="respuesta">respuesta</label>
+                <textarea name="respuesta" maxlength="150" formControlName="respuesta"></textarea>
+            </li>
+            <li>
+                <!--Boton para actualizar reclamo -->
+                
+                <button id="crear" type="submit" (click)="editar()" mat-raised-button color="warn">Actualizar</button>
+               
+            </li>
+        </ul>
+    </div>
+</form>

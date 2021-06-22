@@ -15,6 +15,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ClienteVerReclamosComponent } from './componentes/cliente-ver-reclamos/cliente-ver-reclamos.component';
+import { ClienteNuevoReclamoComponent } from './componentes/cliente-nuevo-reclamo/cliente-nuevo-reclamo.component';
+import { AdminVerUsuariosComponent } from './componentes/admin-ver-usuarios/admin-ver-usuarios.component';
+import { AdminVerReclamosComponent } from './componentes/admin-ver-reclamos/admin-ver-reclamos.component';
+import { AdminEdReclamoComponent } from './componentes/admin-ed-reclamo/admin-ed-reclamo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +26,11 @@ import { ClienteVerReclamosComponent } from './componentes/cliente-ver-reclamos/
     HeaderComponent,
     FooterComponent,
     CrearUsuarioComponent,
-    ClienteVerReclamosComponent
+    ClienteVerReclamosComponent,
+    ClienteNuevoReclamoComponent,
+    AdminVerUsuariosComponent,
+    AdminVerReclamosComponent,
+    AdminEdReclamoComponent
   ],
   imports: [
     BrowserModule,

@@ -14,9 +14,9 @@ $coneccion = new mysqli($host, $user, $pw, $db);
 /*echo $_GET["correo"];
 echo $_GET["password"];
 */
-$correo=$_GET["correo"];
-$pass=$_GET["password"];
-$query = "SELECT * FROM usuario where correo=$correo and cpassword=$pass";
+$id=$_GET["id"];
+
+$query = "SELECT * FROM reclamo where id=$id";
 
 $i=0;
 //echo $query;
@@ -24,9 +24,10 @@ if ($resultado=$coneccion->query($query)) {
     
     while($fila=$resultado->fetch_object()){
         $usuario=array(
+            "id"=>$fila->id,
             "rut"=>$fila->rut,
-            "password"=>$fila->cpassword,
-            "tipo"=>$fila->tipo
+            "asunto"=>$fila->asunto,
+            
         );
         $datos[$i]=$usuario;
         $jsusuario=json_encode($usuario);

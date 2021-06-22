@@ -1,39 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ReclamosclienteService} from '../../servicios/reclamoscliente.service';
 import {Reclamo} from '../../interfaces/reclamo';
+import {AdminreportesService} from '../../servicios/adminreportes.service';
 @Component({
-  selector: 'app-cliente-ver-reclamos',
-  templateUrl: './cliente-ver-reclamos.component.html',
-  styleUrls: ['./cliente-ver-reclamos.component.scss']
+  selector: 'app-admin-ver-reclamos',
+  templateUrl: './admin-ver-reclamos.component.html',
+  styleUrls: ['./admin-ver-reclamos.component.scss']
 })
-export class ClienteVerReclamosComponent implements OnInit {
+export class AdminVerReclamosComponent implements OnInit {
   lista:Array<Reclamo>=[];
-  //lista:Array<any>=[];
   rut:string;
-  //rut global para redireccionar a crear reclamo
-  constructor(private route:ActivatedRoute , private reclamoCliente:ReclamosclienteService) {
-     this.rut='none';
-  }
-    
+  constructor(private route:ActivatedRoute,private adminReporte:AdminreportesService) {
+    this.rut='none';
+   }
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(params=>{
           
       let rut = params.get("rut");
-      
-      console.log("rut es:"+rut);
       this.rut=rut!;
       //subscribe edntro de otro subscribe
-      this.reclamoCliente.obtenerReclamos(rut!).subscribe(datos=>{
+      this.adminReporte.obtenerReclamos().subscribe(datos=>{
         if (datos == null){
           console.log("RECLAMO ESTA VACIO");
         }else{
           console.log("reclamo largo: "+ datos.length);
           console.log("reclamo id: "+datos[0].id);
           console.log("reclamo rut: "+datos[0].rut);
-          console.log("reclamo rut: "+datos[0].asunto);
-          console.log("reclamo rut: "+datos[0].descripcion);
-          console.log("reclamo rut: "+datos[0].prioridad);
+          console.log("reclamo asunto: "+datos[0].asunto);
+          console.log("reclamo descrip: "+datos[0].descripcion);
+          console.log("reclamo prioridad: "+datos[0].prioridad);
           //this.lista.push(datos.rut);
           if (typeof +datos[0].id === "number") {
             console.log("ID ES INT ");
@@ -62,11 +58,9 @@ export class ClienteVerReclamosComponent implements OnInit {
       });
     });
   }
-  nuevoreclamo(){
-    console.log("nuevo reclamo");
-    window.location.href="/nuevoreclamo/"+this.rut;
-  }
   salir(){
-    window.location.href="";
+    console.log("SALIR");
+      window.location.href="/verusuarios/"+this.rut;
   }
+
 }
