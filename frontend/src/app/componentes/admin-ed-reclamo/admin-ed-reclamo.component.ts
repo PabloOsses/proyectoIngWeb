@@ -22,10 +22,10 @@ export class AdminEdReclamoComponent implements OnInit {
   lista:Array<Reclamo>=[];
   constructor(private route:ActivatedRoute,private fb:FormBuilder,private adminEditar:AdminEdReclamoService) {
     this.formulario=this.fb.group({
-      titulo:["",[Validators.required, Validators.maxLength(30)]],
+      
       estado:["",[Validators.required, Validators.maxLength(30)]],
       /*[,[validaciones(en este caso requerido y maximo de caracteres)]] */
-      descripcion:["",[Validators.required, Validators.maxLength(150)]],
+      
       respuesta:["",[Validators.required, Validators.maxLength(30)]],
     });
     this.rutAd='none';
@@ -50,7 +50,12 @@ export class AdminEdReclamoComponent implements OnInit {
       console.log("RUT AD ES"+ this.rutAd);
       this.adminEditar.adminConsultarReclamo(+intento!).subscribe(datos=>{
         console.log("reclamo id: "+datos.id);
-        console.log("reclamo JEJEJJEJE: "+datos.asunto);
+        console.log("reclamo asunto: "+datos.descripcion);
+        console.log("reclamo id: "+datos.id);
+        console.log("reclamo asunto: "+datos.categoria);
+        this.descripcion=datos.descripcion;
+        this.asunto=datos.asunto;
+        this.categoria=datos.categoria;
         this.id=datos.id;
       });
     });

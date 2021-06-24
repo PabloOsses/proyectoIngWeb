@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from  'rxjs';
-import {Login} from '../interfaces/login';
+import {environment} from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  url="http://localhost/proyectoWeb/backend/";
+  url=environment.apiUrl;
   constructor(private http:HttpClient) { }
 
   validarLogin(correo:string,password:string):Observable<any>{

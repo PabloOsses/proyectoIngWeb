@@ -3,12 +3,14 @@ import {FormGroup,FormBuilder, Validators, AbstractControl} from '@angular/forms
 import {ActivatedRoute} from '@angular/router';
 import {Cliente} from '../../interfaces/cliente';
 import {CrearclienteService} from '../../servicios/crearcliente.service';
+
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
   styleUrls: ['./crear-usuario.component.scss']
 })
 export class CrearUsuarioComponent implements OnInit {
+  seleccionado:string='';
   formulario:FormGroup;
   rut:AbstractControl;
   nombre:AbstractControl;
@@ -21,7 +23,10 @@ export class CrearUsuarioComponent implements OnInit {
   cpassword:AbstractControl;
 
   Lista2:Array<Cliente>=[];
-
+  comunas:Array<String>=[];
+  mensaje1:Array<String>=[];
+  mensaje2:Array<String>=[];
+  mensaje3:Array<String>=[];
 
   constructor(private fb:FormBuilder, private route:ActivatedRoute,private servicioCliente:CrearclienteService) {
     this.formulario=this.fb.group({
@@ -72,12 +77,77 @@ export class CrearUsuarioComponent implements OnInit {
       password:this.password.value,
   
     };
+    if(this.password.value!==this.cpassword.value){
+      console.log("son distintos")
+      this.mensaje3.push("CONTRASEÑA NO CONFIRMADA");
+      return;
+    }
     this.Lista2.push(test);
-    this.servicioCliente.Guardar(this.Lista2).subscribe(datos=>{
-       
-      //console.log("DATO RECIVIDO EN METODO POST"+ datos);
-    });
+      this.servicioCliente.Guardar(this.Lista2).subscribe(datos=>{
+        
+        //console.log("DATO RECIVIDO EN METODO POST"+ datos);
+      });
+      window.location.href="";
     
+  }
+  onChange(value:string){
+    if (value==="arica"){
+      this.comunas=["Arica","Camarones","Putre"];
+    }
+    if (value==="tarapaca"){
+      this.comunas=["Alto Hospicio","Iquique","Colchane","Huara"];
+    }
+    if (value==="antofagasta"){
+      this.comunas=["Calama","Tocopilla","Mejillones","María Elena","Taltal","Sierra Gorda"];
+    }
+    if (value==="atacama"){
+      this.comunas=["Chañaral","Diego de Almagro","Copiapó","Tierra Amarilla","Freirina"];
+    }
+    if (value==="coquimbo"){
+      this.comunas=["Canela","Illapel","Los Vilos","Salamanca","Andacollo","Coquimbo"];
+    }
+    if (value==="valparaiso"){
+      this.comunas=["Valparaíso","Casablanca","Concón","Juan Fernandez"," Puchuncavi","Quintero","Viña del Mar"];
+    }
+    if (value==="santiago"){
+      this.comunas=["Cerrillos","La Cisterna","La Florida","Lo Barnechea","Lo Espejo","Quilicura","Macul","Huechuraba","Lo Prado"];
+    }
+    if (value==="oHiggins"){
+      this.comunas=["Codegua","Malloa","Rancagua","Rengo","Litueche","Pichilemu","Chimbarongo"];
+    }
+    if (value==="maule"){
+      this.comunas=["Pelluhue","Curico","Hualane","Licanten"];
+    }
+    
+    if (value==="nuble"){
+      this.comunas=["Chillán","Bulnes","El Carmen"];
+    }
+    if (value==="biobio"){
+      this.comunas=["Los Ángeles","Antuco","Cabrero"];
+    }
+    if (value==="araucania"){
+      this.comunas=["Temuco","Padre Las Casas","Perquenco"];
+    }
+    if (value==="rios"){
+      this.comunas=["Mariquina","Valdivia","La Unión"];
+    }
+    if (value==="lagos"){
+      this.comunas=["Ancud","Castro","Chonchi"];
+    }
+    if (value==="aysen"){
+      this.comunas=["Aysen","Chile Chico","Guaitecas"];
+    }
+    if (value==="magallanes"){
+      this.comunas=["Laguna Blanca","Punta Arenas","Río Verde"];
+    }
+    if (value==="antartica"){
+      this.comunas=["Cabo de Hornos","Antartica"];
+    }
+    
+    console.log("algun valor"+ value);
+  }
+  salir(){
+    window.location.href="";
   }
 
 }

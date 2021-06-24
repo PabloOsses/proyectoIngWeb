@@ -4,15 +4,15 @@
         <div id="cerrado" >
             <ul id="vistadatos" >
                 <li id="titulo">
-                    {{item.rut}} 
+                    {{item.rut}} : {{item.nombre}}, {{item.apellido}}
                 </li>
                 <li id="descrip">
-                    {{item.nombre}}
+                    Correo contacto: {{item.correo}}
                 </li>
             </ul>
         </div>
     </div>
-    <button id="foot" (click)="VerReclamos()" mat-raised-button color="warn">VER RECLAMOS</button>
+    <button id="reclamos" (click)="VerReclamos()" mat-raised-button color="primary">VER RECLAMOS</button>
     <li>
         <button id="salir" type="submit"  (click)="salir()" mat-raised-button color="warn">Salir</button>
     </li>

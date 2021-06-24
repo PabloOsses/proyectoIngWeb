@@ -1,4 +1,5 @@
 <?php
+include("db.php");
 /*Corresponde al POST */
 header('Content-type: application/json');
 header('Access-Control-Allow-Origin:*');
@@ -9,11 +10,7 @@ $datos=json_decode($json);
   
 //file_put_contents("usuarios.json", $json);
 /*Simplemente coloca los datos en el archivo json que esta en la misma carpeta*/
-$host='localhost';
-$user='root';
-$pw='Barco24024qqq';
-$db='prueba4';
-$coneccion = new mysqli($host, $user, $pw, $db);
+
 if ($coneccion->connect_errno) {
     //echo "error" ;
     exit();

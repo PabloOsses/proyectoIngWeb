@@ -33,7 +33,7 @@
             <li>
                 <!--Boton para crear Reclamo -->
                 
-                <button id="crear" type="submit"  (click)="Crear()" mat-raised-button color="warn">Nuevo reclamo</button>
+                <button id="crear" type="submit"  [disabled]="formulario.invalid" (click)="Crear()" mat-raised-button color="primary">Nuevo reclamo</button>
                 
             </li>
             <li>

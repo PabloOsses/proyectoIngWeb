@@ -12,13 +12,13 @@
             </li>
             <li>
                 <a [routerLink]="['/crear']" routerLinkActive="router-link-active">
-                    Crear usuario
+                    <button  type="submit" mat-raised-button color="primary">Crear Usuario</button>
                 </a>
             </li>
             <li>
                 <!--Boton para crear nota -->
                    
-                <button id="ingresar" type="submit"  (click)="ingresar()" mat-raised-button color="warn">Iniciar Sesion</button>
+                <button id="ingresar" type="submit" [disabled]="formulario.invalid"  (click)="ingresar()" mat-raised-button color="primary">Iniciar Sesion</button>
                 
             </li>
         </ul>

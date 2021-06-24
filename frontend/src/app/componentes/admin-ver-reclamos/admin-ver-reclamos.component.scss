@@ -1,3 +1,14 @@
+#buscador{
+    border-radius: 5px;
+    
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 400px;
+}
 ul{
     list-style-type: none;
     
@@ -12,7 +23,7 @@ ul{
     margin-right: auto;
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 400px;
+    width: 480px;
 }
 #titulo{
     font-size: large;
@@ -24,15 +35,64 @@ a{
     text-decoration:none
 }
 #cerrado{
-    background-color: green;
+    background-color:  rgb(47, 173, 47);
+    color: black;
     border-radius: 5px;
     height: 100%;
     margin-right: 5%;
     width: 350px;
 }
-
-
+#abierto{
+    background-color: rgb(228, 40, 72);
+    color: black;
+    border-radius: 5px;
+    height: 100%;
+    margin-right: 5%;
+    width: 350px;
+    
+}
+#proceso{
+    background-color: yellow;
+    border-radius: 5px;
+    height: 100%;
+    margin-right: 5%;
+    width: 350px;
+    color: black;
+    
+}
 ul div{
     width: 100%;
     
+}
+
+#buscador{
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 400px;
+}
+#salir{
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+#respuesta{
+    margin: auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 30%;
+    font-size: 14px;
+    color: black;
 }

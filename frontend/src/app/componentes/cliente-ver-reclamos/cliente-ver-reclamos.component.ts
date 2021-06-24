@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ReclamosclienteService} from '../../servicios/reclamoscliente.service';
 import {Reclamo} from '../../interfaces/reclamo';
+import {FormBuilder,FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-cliente-ver-reclamos',
   templateUrl: './cliente-ver-reclamos.component.html',
@@ -9,11 +10,16 @@ import {Reclamo} from '../../interfaces/reclamo';
 })
 export class ClienteVerReclamosComponent implements OnInit {
   lista:Array<Reclamo>=[];
+  formulario:FormGroup;
   //lista:Array<any>=[];
   rut:string;
+  palabrafiltro:string='';
   //rut global para redireccionar a crear reclamo
-  constructor(private route:ActivatedRoute , private reclamoCliente:ReclamosclienteService) {
+  constructor(private route:ActivatedRoute , private reclamoCliente:ReclamosclienteService,private fb:FormBuilder) {
      this.rut='none';
+     this.formulario=this.fb.group({
+      texto:["",[Validators.required]]
+    });
   }
     
   ngOnInit(): void {
@@ -53,8 +59,12 @@ export class ClienteVerReclamosComponent implements OnInit {
               estado:datos[i].estado,
               respuesta:datos[i].respuesta,
             };
+            if(test.respuesta==="NONE"){
+              test.respuesta="";
+            }
             this.lista.push(test);
           }
+          
           console.log("lista lasrgo "+ this.lista.length);
         }
         
@@ -68,5 +78,9 @@ export class ClienteVerReclamosComponent implements OnInit {
   }
   salir(){
     window.location.href="";
+  }
+  buscarPrioridad(){
+    this.palabrafiltro=this.formulario.get('texto')?.value;
+    //console.log(this.formulario.get('texto')?.value);
   }
 }

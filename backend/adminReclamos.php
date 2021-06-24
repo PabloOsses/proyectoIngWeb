@@ -1,15 +1,12 @@
 <?php
+include("db.php");
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *'); 
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 $json=file_get_contents('php://input');//SOLUCIONADO?
 
 
-$host='localhost';
-$user='root';
-$pw='Barco24024qqq';
-$db='prueba4';
-$coneccion = new mysqli($host, $user, $pw, $db);
+
 $i=0;
 
 $query = "SELECT * FROM reclamo";

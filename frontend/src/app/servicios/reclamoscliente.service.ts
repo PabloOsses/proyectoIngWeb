@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import {Reclamo} from '../interfaces/reclamo';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from  'rxjs';
+import {environment} from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class ReclamosclienteService {
-  url="http://localhost/proyectoWeb/backend/";
+  url=environment.apiUrl;
   constructor(private http:HttpClient) { }
   obtenerReclamos(rut:string):Observable<any>{
     let headers= new HttpHeaders();

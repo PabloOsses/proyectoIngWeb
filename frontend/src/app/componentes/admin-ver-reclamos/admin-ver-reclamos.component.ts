@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Reclamo} from '../../interfaces/reclamo';
 import {AdminreportesService} from '../../servicios/adminreportes.service';
+import {FormBuilder,FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-admin-ver-reclamos',
   templateUrl: './admin-ver-reclamos.component.html',
@@ -9,9 +10,14 @@ import {AdminreportesService} from '../../servicios/adminreportes.service';
 })
 export class AdminVerReclamosComponent implements OnInit {
   lista:Array<Reclamo>=[];
-  rut:string;
-  constructor(private route:ActivatedRoute,private adminReporte:AdminreportesService) {
-    this.rut='none';
+  rut:string='';
+  formulario:FormGroup;
+  palabrafiltro:string='';
+  constructor(private route:ActivatedRoute,private adminReporte:AdminreportesService,private fb:FormBuilder) {
+    
+    this.formulario=this.fb.group({
+      texto:["",[Validators.required]]
+    });
    }
 
   ngOnInit(): void {
@@ -49,6 +55,9 @@ export class AdminVerReclamosComponent implements OnInit {
               estado:datos[i].estado,
               respuesta:datos[i].respuesta,
             };
+            if(test.respuesta==='NONE'){
+              test.respuesta='';
+            }
             this.lista.push(test);
           }
           console.log("lista lasrgo "+ this.lista.length);
@@ -62,5 +71,8 @@ export class AdminVerReclamosComponent implements OnInit {
     console.log("SALIR");
       window.location.href="/verusuarios/"+this.rut;
   }
-
+  buscarPrioridad(){
+    this.palabrafiltro=this.formulario.get('texto')?.value;
+    //console.log(this.formulario.get('texto')?.value);
+  }
 }

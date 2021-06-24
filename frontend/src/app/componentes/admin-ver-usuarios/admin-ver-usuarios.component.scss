@@ -4,7 +4,7 @@ ul{
 }
 #cajaa{
     border-radius: 5px;
-    background-color: burlywood;
+    
     color: white;
     display: flex;
     flex-direction: row;
@@ -34,5 +34,24 @@ a{
 
 ul div{
     width: 100%;
+    
+}
+#reclamos{
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#salir{
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
     
 }

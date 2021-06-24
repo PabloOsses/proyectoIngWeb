@@ -1,22 +1,67 @@
 <ul>
-    
-    <div id="cajaa" *ngFor="let item of lista" >
-        <a [routerLink]="['/admin/editarreclamo',rut,item.id]" routerLinkActive="router-link-active" >
+    <li>
+        <div id="buscador">
+            <form [formGroup]="formulario" (submit)="buscarPrioridad()" id="buscador">
+                <input type= 'text' formControlName="texto">
+                <button mat-raised-button>Buscar</button>
+            </form>
+        </div>
+    </li>
+    <div id="cajaa" *ngFor="let item of lista | buscarPrioridad:palabrafiltro ">
+        <a [routerLink]="['/admin/editarreclamo',rut,item.id]" routerLinkActive="router-link-active" *ngIf="item.estado==='cerrado'">
             <div id="cerrado" >
                 <ul id="vistadatos" >
                     <li id="titulo">
-                        {{item.id}} 
+                        #{{item.id}} :  {{item.asunto}}
                     </li>
                     <li id="descrip">
-                        {{item.asunto}}
+                        Categoria: {{item.categoria}} 
+                    </li>
+                    <li>
+                        Prioridad : {{item.prioridad}}
+                    </li>
+                </ul>
+            </div>
+            
+        </a>
+        <a [routerLink]="['/admin/editarreclamo',rut,item.id]" routerLinkActive="router-link-active" *ngIf="item.estado==='abierto'">
+            <div id="abierto" >
+                <ul id="vistadatos" >
+                    <li id="titulo">
+                        #{{item.id}} :  {{item.asunto}}
+                    </li>
+                    <li id="descrip">
+                        Categoria: {{item.categoria}} 
+                    </li>
+                    <li>
+                        Prioridad : {{item.prioridad}}
                     </li>
                 </ul>
             </div>
         </a>
+        <a [routerLink]="['/admin/editarreclamo',rut,item.id]" routerLinkActive="router-link-active" *ngIf="item.estado==='proceso'">
+            <div id="proceso" >
+                <ul id="vistadatos" >
+                    <li id="titulo">
+                        #{{item.id}} :  {{item.asunto}}
+                    </li>
+                    <li id="descrip">
+                        Categoria: {{item.categoria}} 
+                    </li>
+                    <li>
+                        Prioridad : {{item.prioridad}}
+                    </li>
+                </ul>
+            </div>
+        </a>
+        <div id="respuesta">
+            {{item.respuesta}}
+        </div>
+
     </div>
    
     <li>
-        <button id="salir" type="submit"  (click)="salir()" mat-raised-button color="warn">Salir</button>
+        <button id="salir" type="submit"  (click)="salir()" mat-raised-button color="warn">Volver</button>
     </li>
     
 </ul>

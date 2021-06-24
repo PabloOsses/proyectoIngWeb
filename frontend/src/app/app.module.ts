@@ -19,6 +19,13 @@ import { ClienteNuevoReclamoComponent } from './componentes/cliente-nuevo-reclam
 import { AdminVerUsuariosComponent } from './componentes/admin-ver-usuarios/admin-ver-usuarios.component';
 import { AdminVerReclamosComponent } from './componentes/admin-ver-reclamos/admin-ver-reclamos.component';
 import { AdminEdReclamoComponent } from './componentes/admin-ed-reclamo/admin-ed-reclamo.component';
+import {MatDividerModule} from '@angular/material/divider';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import { BuscarPrioridadPipe } from './pipes/buscar-prioridad.pipe';
+import { BuscarCategoriaPipe } from './pipes/buscar-categoria.pipe';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +37,9 @@ import { AdminEdReclamoComponent } from './componentes/admin-ed-reclamo/admin-ed
     ClienteNuevoReclamoComponent,
     AdminVerUsuariosComponent,
     AdminVerReclamosComponent,
-    AdminEdReclamoComponent
+    AdminEdReclamoComponent,
+    BuscarPrioridadPipe,
+    BuscarCategoriaPipe
   ],
   imports: [
     BrowserModule,
@@ -41,7 +50,12 @@ import { AdminEdReclamoComponent } from './componentes/admin-ed-reclamo/admin-ed
     MatIconModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDividerModule,
+    MatSliderModule ,
+    MatButtonModule,
+    MatSelectModule,
+    FormsModule
 
   ],
   providers: [],

@@ -1,9 +1,17 @@
 <form [formGroup]="formulario"  >
+    <ul>
+        <!--mensaje 2 es para verificacion de password-->
+        <!--mensaje  es para verificacion de correo-->
+        
+        <li id="mensaje" *ngFor="let item of mensaje1">{{item}}</li>
+        <li id="mensaje2" *ngFor="let item of mensaje2">{{item}}</li>
+        <li id="mensaje3" *ngFor="let item of  mensaje3">{{item}}</li>
+    </ul>
     <div id="caja0">
         <ul>
             <li>
                 <label for="rut">rut</label>
-                <input type="text" formControlName="rut" required>
+                <input type="text" formControlName="rut" placeholder="XXXXXXXX-X" required>
             </li>
             <li>
                 <label for="nombre">Nombre</label>
@@ -20,26 +28,39 @@
             <li>
                 <label for="region">Region</label>
 
-                <select name="region" id="regiones" formControlName="region">
+                <select name="region" id="regiones" formControlName="region" (change)="onChange(this.region.value)">
                     <option value="arica">Arica</option>
                     <option value="tarapaca">Tarapaca</option>
                     <option value="antofagasta">Antofagasta</option>
-                    
+                    <option value="atacama">Atacama</option>
+                    <option value="coquimbo">Coquimbo</option>
+                    <option value="valparaiso">Valparaiso</option>
+                    <option value="santiago">Santiago</option>
+                    <option value="oHiggins">O'Higgins</option>
+                    <option value="maule">Maule</option>
+                    <option value="nuble">Ñuble</option>
+                    <option value="biobio">Biobio</option>
+                    <option value="araucania">Araucania</option>
+                    <option value="rios">Rios</option>
+                    <option value="lagos">Lagos</option>
+                    <option value="aysen">Aysen</option>
+                    <option value="magallanes">Magallanes</option>
+                    <option value="antartica">Antartica</option>
                 </select>
             </li>
+            
             <li>
                 <label for="comuna">Comuna</label>
 
                 <select name="comuna" id="comunas" formControlName="comuna">
-                    <option value="abierto">Abierto</option>
-                    <option value="proceso">En proceso</option>
-                    <option value="cerrado">Cerrado</option>
+                    <option [value]="i" *ngFor="let i of comunas">{{i}}</option>
                     
                 </select>
             </li>
+            
             <li>
                 <label for="correo">Correo Electronico</label>
-                <input type="text" formControlName="correo" required>
+                <input type="text" formControlName="correo" required placeholder="Example@mail.com">
             </li>
             <li>
                 <label for="password">Contraseña</label>
@@ -51,9 +72,15 @@
             </li>
             <li>
                 <!--Boton para crear nota -->
-                <a [routerLink]="['/']" routerLinkActive="router-link-active">
-                    <button id="crear" type="submit"  (click)="Crear()" mat-raised-button color="warn">Crear usuario</button>
-                </a>
+                
+                <button id="crear" type="submit"  [disabled]="formulario.invalid"  (click)="Crear()" mat-raised-button color="primary">Crear usuario</button>
+                
+            </li>
+            <li>
+                <!--Boton para crear nota -->
+                
+                <button id="crear" type="submit"  (click)="salir()" mat-raised-button color="warn">Salir</button>
+                
             </li>
         </ul>
     </div>

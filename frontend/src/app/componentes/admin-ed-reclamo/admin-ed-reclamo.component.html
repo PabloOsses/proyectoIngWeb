@@ -3,7 +3,18 @@
 <form [formGroup]="formulario">
     <div id="caja0">
         <ul>
-            
+            <li>
+                <label for="">Asunto:</label>
+                {{asunto}}
+            </li>
+            <li>
+                <label for="">Categoria:</label>
+                {{categoria}}
+            </li>
+            <li>
+                <label for="">Descripcion:</label>
+                {{descripcion}}
+            </li>
             <li>
                 <label for="estados">Estado</label>
 
@@ -15,13 +26,13 @@
                 </select>
             </li>
             <li>
-                <label for="respuesta">respuesta</label>
+                <label for="respuesta">Respuesta</label>
                 <textarea name="respuesta" maxlength="150" formControlName="respuesta"></textarea>
             </li>
             <li>
                 <!--Boton para actualizar reclamo -->
                 
-                <button id="crear" type="submit" (click)="editar()" mat-raised-button color="warn">Actualizar</button>
+                <button id="crear" type="submit" [disabled]="formulario.invalid" (click)="editar()"  mat-raised-button color="warn">Actualizar</button>
                
             </li>
         </ul>
