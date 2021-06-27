@@ -13,6 +13,7 @@ export class ClienteVerReclamosComponent implements OnInit {
   formulario:FormGroup;
   //lista:Array<any>=[];
   rut:string;
+  condicion:string="";
   palabrafiltro:string='';
   //rut global para redireccionar a crear reclamo
   constructor(private route:ActivatedRoute , private reclamoCliente:ReclamosclienteService,private fb:FormBuilder) {
@@ -32,7 +33,7 @@ export class ClienteVerReclamosComponent implements OnInit {
       //subscribe edntro de otro subscribe
       this.reclamoCliente.obtenerReclamos(rut!).subscribe(datos=>{
         if (datos == null){
-          console.log("RECLAMO ESTA VACIO");
+          this.condicion="vacio";
         }else{
           console.log("reclamo largo: "+ datos.length);
           console.log("reclamo id: "+datos[0].id);

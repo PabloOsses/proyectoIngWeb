@@ -3,9 +3,11 @@ ul{
     
 }
 #buscador{
+    display: inline-block;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
+    margin-left: 30%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
@@ -96,4 +98,15 @@ ul div{
     margin-bottom: 10px;
     width: 30%;
     font-size: 14px;
+}
+p{
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 400px;
+    
 }

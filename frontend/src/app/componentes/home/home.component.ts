@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   
   constructor(private fb:FormBuilder, private route:ActivatedRoute, private login:LoginService) {
     this.formulario=this.fb.group({
-      correo:["",[Validators.required, Validators.maxLength(30)]],
+      correo:["",[Validators.required, Validators.maxLength(30), Validators.email]],
       password:["",[Validators.required, Validators.maxLength(30)]],
       /*[,[validaciones(en este caso requerido y maximo de caracteres)]] */
       

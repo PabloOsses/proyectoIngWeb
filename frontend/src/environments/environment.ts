@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false ,
-  apiUrl:"http://localhost/proyectoWeb/backend/"
+  apiUrl:"http://localhost:40/proyectoWeb/backend/"
 };
 
 /*

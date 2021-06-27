@@ -7,7 +7,10 @@ import {environment} from '../../environments/environment';
 })
 export class LoginService {
   url=environment.apiUrl;
-  constructor(private http:HttpClient) { }
+  textoClave:string='';
+  constructor(private http:HttpClient) {
+    
+   }
 
   validarLogin(correo:string,password:string):Observable<any>{
     let headers= new HttpHeaders();
@@ -23,4 +26,5 @@ export class LoginService {
     return this.http.get(`${this.url}login.php?correo=${JSON.stringify(correo)}&password=${JSON.stringify(password)}`);
     //return this.http.get(`${this.url}login.php?correo=${correo}&password=${password}`);
   }
+
 }

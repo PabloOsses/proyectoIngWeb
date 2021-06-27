@@ -1,12 +1,10 @@
-ul{
-    list-style-type: none;
-    
+form{
+    margin-left: 35%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 500px;
 }
-#caja0{
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-}
+
 label{
     display: inline-block;
     width: 100px;
@@ -15,4 +13,31 @@ label{
     color: white;
     padding: 10px;
     border-radius: 5px;
+    margin-right: 5px;
+}
+
+li {
+    list-style:none;
+
+}
+/*
+input{
+    width: 100px;
+}
+*/
+select{
+    width: 200px;
+    height: 30px;
+}
+#crear{
+    margin-left: 120px;
+}
+button{
+    margin-top: 10px;
+}
+input{
+    width: 200px;
+}
+select{
+    width: 200px;
 }

@@ -3,7 +3,7 @@ $coneccion= mysqli_connect(
     'localhost',
     'root',
     'Barco24024qqq',
-    'prueba4'
+    'sistemareclamos'
 );
 /*if(isset($coneccion)){
     echo 'SE CONECTO';

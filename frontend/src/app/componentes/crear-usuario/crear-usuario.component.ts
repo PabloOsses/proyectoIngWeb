@@ -27,7 +27,10 @@ export class CrearUsuarioComponent implements OnInit {
   mensaje1:Array<String>=[];
   mensaje2:Array<String>=[];
   mensaje3:Array<String>=[];
-
+  condicionContr:string='';
+  condicionRut:string='';
+  hide = true;
+  hide2 = true;
   constructor(private fb:FormBuilder, private route:ActivatedRoute,private servicioCliente:CrearclienteService) {
     this.formulario=this.fb.group({
       rut:["",[Validators.required, Validators.maxLength(30)]],
@@ -38,7 +41,7 @@ export class CrearUsuarioComponent implements OnInit {
       /*Por alguna razon incluso con validaciones, no funciona el required */
       region:["",[Validators.required, Validators.maxLength(30)]],
       comuna:["",[Validators.required, Validators.maxLength(30)]],
-      correo:["",[Validators.required, Validators.maxLength(30)]],
+      correo:["",[Validators.required, Validators.maxLength(30),Validators.email]],
       password:["",[Validators.required, Validators.maxLength(30)]],
       cpassword:["",[Validators.required, Validators.maxLength(30)]],
     });
@@ -78,8 +81,12 @@ export class CrearUsuarioComponent implements OnInit {
   
     };
     if(this.password.value!==this.cpassword.value){
-      console.log("son distintos")
-      this.mensaje3.push("CONTRASEÑA NO CONFIRMADA");
+      this.condicionContr="no"
+      return;
+    }
+    let regRut = new RegExp("[0-9]+-[0-9kK]");
+    if(!regRut.test(this.rut.value)){
+      this.condicionRut="no"
       return;
     }
     this.Lista2.push(test);

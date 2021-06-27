@@ -1,4 +1,16 @@
+
 <form [formGroup]="formulario"  >
+    <legend>Crear usuario</legend>
+    <p *ngIf="condicionContr==='no'">
+        <ngb-alert [dismissible]="false">
+          <strong>AVISO</strong> Contraseña no confirmada correctamente
+        </ngb-alert>
+    </p>
+    <p *ngIf="condicionRut==='no'">
+        <ngb-alert [dismissible]="false">
+          <strong>AVISO</strong> RUT no valido
+        </ngb-alert>
+    </p>
     <ul>
         <!--mensaje 2 es para verificacion de password-->
         <!--mensaje  es para verificacion de correo-->
@@ -20,6 +32,7 @@
             <li>
                 <label for="apellido">Apellido</label>
                 <input type="text" formControlName="apellido" required>
+                
             </li>
             <li>
                 <label for="residencia">Direccion residencia</label>
@@ -63,12 +76,20 @@
                 <input type="text" formControlName="correo" required placeholder="Example@mail.com">
             </li>
             <li>
-                <label for="password">Contraseña</label>
-                <input type="text" formControlName="password" required>
+                <label for="password">Ingrese contraseña</label>
+                <input  formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                
             </li>
             <li>
-                <label for="cpassword">Confirmar Contraseña</label>
-                <input type="text" formControlName="cpassword" required>
+                <label for="cpassword">Ingrese contraseña</label>
+                <input  formControlName="cpassword" matInput [type]="hide2 ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+                      <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                
             </li>
             <li>
                 <!--Boton para crear nota -->
