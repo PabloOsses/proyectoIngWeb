@@ -1,4 +1,4 @@
-//PIPE NO UTILIZADO , IGNORAR
+//PIPE NO UTILIZADO , IGNORAR, ME PREOCUPA ELIMINAR ESTO Y QUE CAUSE PROBLEMAS
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({

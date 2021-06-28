@@ -24,30 +24,34 @@ export class ClienteVerReclamosComponent implements OnInit {
   }
     
   ngOnInit(): void {
+    /*subscribe para obtener los parametros enviados 
+    desde otra pagina */
     this.route.paramMap.subscribe(params=>{
           
       let rut = params.get("rut");
       
-      console.log("rut es:"+rut);
+      
       this.rut=rut!;
-      //subscribe edntro de otro subscribe
+      //subscribe dentro de otro subscribe
+      /*este subscribe es para obtener losreclamos de un cliente */
       this.reclamoCliente.obtenerReclamos(rut!).subscribe(datos=>{
         if (datos == null){
           this.condicion="vacio";
         }else{
+          /*
           console.log("reclamo largo: "+ datos.length);
           console.log("reclamo id: "+datos[0].id);
           console.log("reclamo rut: "+datos[0].rut);
           console.log("reclamo rut: "+datos[0].asunto);
           console.log("reclamo rut: "+datos[0].descripcion);
-          console.log("reclamo rut: "+datos[0].prioridad);
+          console.log("reclamo rut: "+datos[0].prioridad);*/
           //this.lista.push(datos.rut);
-          if (typeof +datos[0].id === "number") {
+          /*if (typeof +datos[0].id === "number") {
             console.log("ID ES INT ");
           }
           if (typeof datos[0].id === "string") {
             console.log("ID ES STRING ");
-          }
+          }*/
           
           for ( let i=0;i<datos.length;i++){
             var test: Reclamo = {
@@ -66,7 +70,7 @@ export class ClienteVerReclamosComponent implements OnInit {
             this.lista.push(test);
           }
           
-          console.log("lista lasrgo "+ this.lista.length);
+          //console.log("lista lasrgo "+ this.lista.length);
         }
         
         
@@ -74,13 +78,14 @@ export class ClienteVerReclamosComponent implements OnInit {
     });
   }
   nuevoreclamo(){
-    console.log("nuevo reclamo");
+    //console.log("nuevo reclamo");
     window.location.href="/nuevoreclamo/"+this.rut;
   }
   salir(){
     window.location.href="";
   }
   buscarPrioridad(){
+    /*pipe del buscador */
     this.palabrafiltro=this.formulario.get('texto')?.value;
     //console.log(this.formulario.get('texto')?.value);
   }

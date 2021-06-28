@@ -11,8 +11,9 @@ export class CrearclienteService {
   constructor(private http:HttpClient) { 
 
   }
+  /*guarda un nuevo cliente */
   Guardar(lista:Array<Cliente>):Observable<any>{
-    console.log("LA LISTA ENVIADA ES "+lista[0].nombre);
+    //console.log("LA LISTA ENVIADA ES "+lista[0].nombre);
     return this.http.post(`${this.url}crearUsuario.php`,JSON.stringify(lista));
 
     

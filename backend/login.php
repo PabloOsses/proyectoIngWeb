@@ -1,11 +1,13 @@
 <?php
+/*Este archivo es un GET,se conecta al servicio LOGIN
+y envia los datos de un cliente al frontend*/
 include("db.php");
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *'); 
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 $json=file_get_contents('php://input');//HE AQUI EL PROBLEMA 
 
-/* AHORA TODO DE LEE DESDE db.php
+/* AHORA TODO SE LEE DESDE db.php
 $host='localhost';
 $user='root';
 $pw='Barco24024qqq';

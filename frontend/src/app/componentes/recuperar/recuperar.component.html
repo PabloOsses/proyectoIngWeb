@@ -1,0 +1,26 @@
+<!--LOGIN, PAGINA INICIAL-->
+<form [formGroup]="formulario"  >
+    <div id="caja0">
+    <p *ngIf="condicionContr==='no'">
+        <ngb-alert [dismissible]="false">
+          <strong>AVISO  :</strong>Se enviara un correo de recuperacion si su email se encentra en nuestros registros
+        </ngb-alert>
+    </p>
+        <ul>
+            <li>
+                <label for="correo">Correo electronico</label>
+                <input type="text" formControlName="correo" value="example@mail.com" required>
+            </li>
+            <li>
+                <!--Boton para login-->
+                <!--PRESIONAR EL BOTON (en caso de ser valido) ENVIA AL COMPONENTE CLIENTE VER RECLAMOS--> 
+                <button id="recuperar" type="submit"  [disabled]="formulario.invalid" (click)="recuperar()" mat-raised-button color="primary">Recuperar contraseña</button>
+                <button id="salir" type="submit"  (click)="salir()" mat-raised-button color="warn">Salir</button>
+            </li>
+        </ul>
+    </div>
+</form>
+
+           
+  
+

@@ -1,31 +1,25 @@
-
+<!--LOGIN, PAGINA INICIAL-->
+<div id="cajaform">
 <form [formGroup]="formulario"  >
     <legend>Crear usuario</legend>
     <p *ngIf="condicionContr==='no'">
-        <ngb-alert [dismissible]="false">
+        <ngb-alert >
           <strong>AVISO</strong> Contraseña no confirmada correctamente
         </ngb-alert>
     </p>
     <p *ngIf="condicionRut==='no'">
-        <ngb-alert [dismissible]="false">
+        <ngb-alert >
           <strong>AVISO</strong> RUT no valido
         </ngb-alert>
     </p>
-    <ul>
-        <!--mensaje 2 es para verificacion de password-->
-        <!--mensaje  es para verificacion de correo-->
-        
-        <li id="mensaje" *ngFor="let item of mensaje1">{{item}}</li>
-        <li id="mensaje2" *ngFor="let item of mensaje2">{{item}}</li>
-        <li id="mensaje3" *ngFor="let item of  mensaje3">{{item}}</li>
-    </ul>
-    <div id="caja0">
-        <ul>
+     <ul>
+        <div id="col1">
             <li>
-                <label for="rut">rut</label>
+                <label for="rut">Rut</label>
                 <input type="text" formControlName="rut" placeholder="XXXXXXXX-X" required>
             </li>
             <li>
+                 
                 <label for="nombre">Nombre</label>
                 <input type="text" formControlName="nombre" required>
             </li>
@@ -36,7 +30,7 @@
             </li>
             <li>
                 <label for="residencia">Direccion residencia</label>
-                <input type="text" formControlName="residencia" required>
+                <input type="text" formControlName="residencia"  placeholder="Calle, Numero" required>
             </li>
             <li>
                 <label for="region">Region</label>
@@ -61,7 +55,8 @@
                     <option value="antartica">Antartica</option>
                 </select>
             </li>
-            
+        </div>
+        <div id="col2">  
             <li>
                 <label for="comuna">Comuna</label>
 
@@ -84,25 +79,29 @@
                 
             </li>
             <li>
-                <label for="cpassword">Ingrese contraseña</label>
+                <label for="cpassword">Confirme contraseña</label>
                 <input  formControlName="cpassword" matInput [type]="hide2 ? 'password' : 'text'">
                 <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
                       <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
                 
             </li>
+        </div>  
             <li>
-                <!--Boton para crear nota -->
+                <!--Boton para crear usuario-->
                 
                 <button id="crear" type="submit"  [disabled]="formulario.invalid"  (click)="Crear()" mat-raised-button color="primary">Crear usuario</button>
-                
+                <button id="salir" type="submit"  (click)="salir()" mat-raised-button color="warn">Salir</button>
             </li>
             <li>
-                <!--Boton para crear nota -->
+                <!--Boton para volver a LOGIN -->
                 
-                <button id="crear" type="submit"  (click)="salir()" mat-raised-button color="warn">Salir</button>
+                
                 
             </li>
-        </ul>
-    </div>
+           
+         
+    </ul>
+    
 </form>
+</div>

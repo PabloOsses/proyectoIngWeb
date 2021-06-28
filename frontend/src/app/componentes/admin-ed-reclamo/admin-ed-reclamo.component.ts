@@ -26,7 +26,7 @@ export class AdminEdReclamoComponent implements OnInit {
       estado:["",[Validators.required, Validators.maxLength(30)]],
       /*[,[validaciones(en este caso requerido y maximo de caracteres)]] */
       
-      respuesta:["",[Validators.required, Validators.maxLength(30)]],
+      respuesta:["",[Validators.required, Validators.maxLength(200)]],
     });
     this.rutAd='none';
     this.respuesta=this.formulario.controls["respuesta"];
@@ -42,17 +42,19 @@ export class AdminEdReclamoComponent implements OnInit {
   ngOnInit(): void {
     this.estado=this.formulario.get('estado') as FormGroup;
     this.respuesta=this.formulario.get('respuesta') as FormGroup;
+    /*subscribe para obtener los parametros enviados 
+    desde otra pagina */
     this.route.paramMap.subscribe(params=>{
           
       let intento = params.get("id");
       this.rutAd = params.get("rut")!;
-      console.log("id es"+ intento);
-      console.log("RUT AD ES"+ this.rutAd);
+      /*console.log("id es"+ intento);
+      console.log("RUT AD ES"+ this.rutAd);*/
       this.adminEditar.adminConsultarReclamo(+intento!).subscribe(datos=>{
-        console.log("reclamo id: "+datos.id);
+        /*console.log("reclamo id: "+datos.id);
         console.log("reclamo asunto: "+datos.descripcion);
         console.log("reclamo id: "+datos.id);
-        console.log("reclamo asunto: "+datos.categoria);
+        console.log("reclamo asunto: "+datos.categoria);*/
         this.descripcion=datos.descripcion;
         this.asunto=datos.asunto;
         this.categoria=datos.categoria;
@@ -85,10 +87,13 @@ export class AdminEdReclamoComponent implements OnInit {
     this.lista.push(test);
     this.adminEditar.adminModificarReclamo(this.lista).subscribe(datos=>{
       
-      console.log("DATO RECIVIDO EN METODO POST");
+      //console.log("DATO RECIVIDO EN METODO POST");
       window.location.href="/admin/verreclamos/"+this.rutAd;
     });
 
+  }
+  salir(){
+    window.location.href="/admin/verreclamos/"+this.rutAd;
   }
 
 }

@@ -26,6 +26,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { BuscarPrioridadPipe } from './pipes/buscar-prioridad.pipe';
 import { BuscarCategoriaPipe } from './pipes/buscar-categoria.pipe';
 import { FormsModule } from '@angular/forms';
+import { RecuperarComponent } from './componentes/recuperar/recuperar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,8 @@ import { FormsModule } from '@angular/forms';
     AdminVerReclamosComponent,
     AdminEdReclamoComponent,
     BuscarPrioridadPipe,
-    BuscarCategoriaPipe
+    BuscarCategoriaPipe,
+    RecuperarComponent
   ],
   imports: [
     BrowserModule,

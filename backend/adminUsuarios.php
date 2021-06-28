@@ -1,4 +1,6 @@
 <?php
+/*Este archivo es un GET ,se conecta al servicio adminreportes
+y envia los datos (excepto la contraseña) de todos los usuarios al frontend*/
 include("db.php");
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *'); 

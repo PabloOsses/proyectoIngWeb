@@ -9,12 +9,14 @@ import {environment} from '../../environments/environment';
 export class AdminreportesService {
   url=environment.apiUrl;
   constructor(private http:HttpClient) { }
+  /*devuelve todos los usuarios registrados */
   obtenerUsuarios():Observable<any>{
     let headers= new HttpHeaders();
     headers.append('Content-Type','application/json');
 
     return this.http.get(`${this.url}adminUsuarios.php`);
   }
+  /*devuelve todos los reclamos */
   obtenerReclamos():Observable<any>{
     let headers= new HttpHeaders();
     headers.append('Content-Type','application/json');

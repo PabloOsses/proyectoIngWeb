@@ -41,6 +41,9 @@ export class ClienteNuevoReclamoComponent implements OnInit {
     this.categoria=this.formulario.get('categoria') as FormGroup;
     this.asunto=this.formulario.get('asunto') as FormGroup;
     this.descripcion=this.formulario.get('descripcion') as FormGroup;
+
+    /*subscribe para obtener los parametros enviados 
+    desde otra pagina */
     this.route.paramMap.subscribe(params=>{
           
       let rut = params.get("rut");
@@ -60,9 +63,10 @@ export class ClienteNuevoReclamoComponent implements OnInit {
     };
     
     this.lista.push(test);
+    /*subscribe para enviar los datos del reclamo */
     this.reclamoCliente.crearReclamo(this.lista).subscribe(datos=>{
       
-      console.log("DATO RECIVIDO EN METODO POST");
+      //console.log("DATO RECIVIDO EN METODO POST");
     });
     window.location.href="/verreclamos/"+this.rut;
     

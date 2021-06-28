@@ -1,9 +1,11 @@
 <?php
+/*Este archivo es un GET ,se conecta al servicio adminreportes
+y envia los datos de todos los reclamos al frontend*/
 include("db.php");
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *'); 
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-$json=file_get_contents('php://input');//SOLUCIONADO?
+$json=file_get_contents('php://input');
 
 
 

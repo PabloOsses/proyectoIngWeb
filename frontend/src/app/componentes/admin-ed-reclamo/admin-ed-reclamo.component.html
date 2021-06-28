@@ -32,8 +32,11 @@
             <li>
                 <!--Boton para actualizar reclamo -->
                 
-                <button id="crear" type="submit" [disabled]="formulario.invalid" (click)="editar()"  mat-raised-button color="warn">Actualizar</button>
+                <button id="crear" type="submit" [disabled]="formulario.invalid" (click)="editar()"  mat-raised-button color="primary">Actualizar</button>
                
+            </li>
+            <li>
+                <button id="salir" type="submit"  (click)="salir()" mat-raised-button color="warn">Volver</button>
             </li>
         </ul>
     </div>

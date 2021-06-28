@@ -21,29 +21,30 @@ export class AdminVerReclamosComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    /*subscribe para obtener los parametros enviados 
+    desde otra pagina */
     this.route.paramMap.subscribe(params=>{
           
       let rut = params.get("rut");
       this.rut=rut!;
-      //subscribe edntro de otro subscribe
+      //subscribe dentro de otro subscribe
       this.adminReporte.obtenerReclamos().subscribe(datos=>{
         if (datos == null){
           console.log("RECLAMO ESTA VACIO");
         }else{
-          console.log("reclamo largo: "+ datos.length);
+          /*console.log("reclamo largo: "+ datos.length);
           console.log("reclamo id: "+datos[0].id);
           console.log("reclamo rut: "+datos[0].rut);
           console.log("reclamo asunto: "+datos[0].asunto);
           console.log("reclamo descrip: "+datos[0].descripcion);
-          console.log("reclamo prioridad: "+datos[0].prioridad);
+          console.log("reclamo prioridad: "+datos[0].prioridad);*/
           //this.lista.push(datos.rut);
-          if (typeof +datos[0].id === "number") {
+          /*if (typeof +datos[0].id === "number") {
             console.log("ID ES INT ");
           }
           if (typeof datos[0].id === "string") {
             console.log("ID ES STRING ");
-          }
-          
+          }*/
           for ( let i=0;i<datos.length;i++){
             var test: Reclamo = {
               id:+datos[i].id,
@@ -60,7 +61,7 @@ export class AdminVerReclamosComponent implements OnInit {
             }
             this.lista.push(test);
           }
-          console.log("lista lasrgo "+ this.lista.length);
+          //console.log("lista lasrgo "+ this.lista.length);
         }
         
         

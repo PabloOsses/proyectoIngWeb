@@ -1,4 +1,6 @@
 <?php
+/*Este archivo es un POST ,se conecta al servicio admin-ed-reclamo
+y modifica los datos de un reclamo en la base de datos*/
 include("db.php");
 /*Corresponde al POST */
 header('Content-type: application/json');
@@ -8,8 +10,7 @@ $json=file_get_contents('php://input');
 $datos=json_decode($json);
  
   
-//file_put_contents("usuarios.json", $json);
-/*Simplemente coloca los datos en el archivo json que esta en la misma carpeta*/
+
 
 if ($coneccion->connect_errno) {
     //echo "error" ;
@@ -19,8 +20,7 @@ $id=$datos[0]->id;
 $estado=$datos[0]->estado;
 $respuesta=$datos[0]->respuesta;
 $query="UPDATE reclamo SET estado='$estado', respuesta='$respuesta' WHERE id='$id'";
-//$query = "INSERT INTO usuario VALUES ('$rut','$nombre', '$apellido', '$residencia','$region','$comuna','$correo','$password','cliente')";
-//$query = "INSERT INTO  usuarios VALUES ('Berta', 'euracia', 'bajada','eti','algo','@gmail','12345')";
+
 if ($coneccion->query($query) === TRUE) {
   //echo "New record created successfully";
 } else {

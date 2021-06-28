@@ -15,23 +15,27 @@ export class AdminVerUsuariosComponent implements OnInit {
    }
     
   ngOnInit(): void {
+    /*subscribe para obtener los parametros enviados 
+    desde otra pagina */
     this.route.paramMap.subscribe(params=>{
           
       let rut = params.get("rut");
       
-      console.log("rut es:"+rut);
+      //console.log("rut es:"+rut);
       this.rut=rut!;
-      //subscribe edntro de otro subscribe
+      //subscribe dentro de otro subscribe
+
+      /*obtiene los usuarios registrados */
       this.adminReporte.obtenerUsuarios().subscribe(datos=>{
         if (datos == null){
           console.log("RECLAMO ESTA VACIO");
         }else{
-          console.log("reclamo largo: "+ datos.length);
+          /*console.log("reclamo largo: "+ datos.length);
           console.log("reclamo rut: "+datos[0].rut);
           console.log("reclamo rut: "+datos[0].nombre);
-          console.log("reclamo rut: "+datos[0].apellido);
+          console.log("reclamo rut: "+datos[0].apellido);*/
           
-          //this.lista.push(datos.rut);
+          /*no es necesario obtener la contraseña */
           for ( let i=0;i<datos.length;i++){
             var test: Cliente = {
               rut:datos[i].rut,
@@ -45,7 +49,7 @@ export class AdminVerUsuariosComponent implements OnInit {
             };
             this.lista.push(test);
           }
-          console.log("lista largo "+ this.lista.length);
+          //console.log("lista largo "+ this.lista.length);
         }
         
         

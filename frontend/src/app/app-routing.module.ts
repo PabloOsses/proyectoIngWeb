@@ -7,6 +7,7 @@ import {ClienteNuevoReclamoComponent} from '../app/componentes/cliente-nuevo-rec
 import {AdminVerUsuariosComponent} from '../app/componentes/admin-ver-usuarios/admin-ver-usuarios.component';
 import {AdminVerReclamosComponent} from '../app/componentes/admin-ver-reclamos/admin-ver-reclamos.component';
 import {AdminEdReclamoComponent} from '../app/componentes/admin-ed-reclamo/admin-ed-reclamo.component';
+import {RecuperarComponent} from '../app/componentes/recuperar/recuperar.component';
 const routes: Routes = [
   {path:"",component:HomeComponent},
   {path:"crear",component:CrearUsuarioComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:"nuevoreclamo/:rut",component:ClienteNuevoReclamoComponent},
   {path:"verusuarios/:rut",component:AdminVerUsuariosComponent},
   {path:"admin/verreclamos/:rut",component:AdminVerReclamosComponent},
-  {path:"admin/editarreclamo/:rut/:id",component:AdminEdReclamoComponent}
+  {path:"admin/editarreclamo/:rut/:id",component:AdminEdReclamoComponent},
+  {path:"recuperar",component:RecuperarComponent}
 ];
 
 @NgModule({

@@ -9,14 +9,16 @@ import {environment} from '../../environments/environment';
 export class AdminEdReclamoService {
   url=environment.apiUrl;
   constructor(private http:HttpClient) { }
+  /*devuelve los datos de un reclamo especifico */
   adminConsultarReclamo(id:number):Observable<any>{
     let headers= new HttpHeaders();
     headers.append('Content-Type','application/json');
 
     return this.http.get(`${this.url}adminConsultarReclamo.php?id=${JSON.stringify(id)}`);
   }
+  /*envia las modificacione de un reclamo */
   adminModificarReclamo(lista:Array<Reclamo>):Observable<any>{
-    console.log("LA LISTA ENVIADA ES ");
+    //console.log("LA LISTA ENVIADA ES ");
     return this.http.post(`${this.url}adminModificarReclamo.php`,JSON.stringify(lista));
   }
 }

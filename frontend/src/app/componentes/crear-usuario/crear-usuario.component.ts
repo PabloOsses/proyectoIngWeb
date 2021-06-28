@@ -3,12 +3,16 @@ import {FormGroup,FormBuilder, Validators, AbstractControl} from '@angular/forms
 import {ActivatedRoute} from '@angular/router';
 import {Cliente} from '../../interfaces/cliente';
 import {CrearclienteService} from '../../servicios/crearcliente.service';
-
+interface Alert {
+  type: string;
+  message: string;
+}
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
   styleUrls: ['./crear-usuario.component.scss']
 })
+
 export class CrearUsuarioComponent implements OnInit {
   seleccionado:string='';
   formulario:FormGroup;
@@ -24,13 +28,23 @@ export class CrearUsuarioComponent implements OnInit {
 
   Lista2:Array<Cliente>=[];
   comunas:Array<String>=[];
-  mensaje1:Array<String>=[];
-  mensaje2:Array<String>=[];
-  mensaje3:Array<String>=[];
+  
   condicionContr:string='';
   condicionRut:string='';
   hide = true;
   hide2 = true;
+
+  ALERTS: Alert[] = [{
+    type: 'rutt',
+    message: 'This is an success alert',
+  }, {
+    type: 'info',
+    message: 'This is an info alert',
+  }, {
+    type: 'warning',
+    message: 'This is a warning alert',
+  }]
+  
   constructor(private fb:FormBuilder, private route:ActivatedRoute,private servicioCliente:CrearclienteService) {
     this.formulario=this.fb.group({
       rut:["",[Validators.required, Validators.maxLength(30)]],
@@ -38,7 +52,7 @@ export class CrearUsuarioComponent implements OnInit {
       apellido:["",[Validators.required, Validators.maxLength(30)]],
       /*[,[validaciones(en este caso requerido y maximo de caracteres)]] */
       residencia:["",[Validators.required, Validators.maxLength(150)]],
-      /*Por alguna razon incluso con validaciones, no funciona el required */
+      
       region:["",[Validators.required, Validators.maxLength(30)]],
       comuna:["",[Validators.required, Validators.maxLength(30)]],
       correo:["",[Validators.required, Validators.maxLength(30),Validators.email]],
@@ -68,7 +82,7 @@ export class CrearUsuarioComponent implements OnInit {
     this.cpassword=this.formulario.get('cpassword') as FormGroup;
   }
   Crear(){
-    //console.log('creado usuario: '+ this.nombre.value);
+    /*ESTO CREA AL USUARIO */
     var test: Cliente= {
       rut:this.rut.value,
       nombre:this.nombre.value,
@@ -98,6 +112,7 @@ export class CrearUsuarioComponent implements OnInit {
     
   }
   onChange(value:string){
+     /*ESTO ES PARA CAMBIAR LAS COMUNAS DE ACUERDO A LA REGION */
     if (value==="arica"){
       this.comunas=["Arica","Camarones","Putre"];
     }
@@ -151,10 +166,12 @@ export class CrearUsuarioComponent implements OnInit {
       this.comunas=["Cabo de Hornos","Antartica"];
     }
     
-    console.log("algun valor"+ value);
+    //console.log("algun valor"+ value);
   }
   salir(){
+    /*boton salir */
     window.location.href="";
   }
+  
 
 }

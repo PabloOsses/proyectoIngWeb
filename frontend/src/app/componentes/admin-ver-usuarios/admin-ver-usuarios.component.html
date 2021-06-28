@@ -1,3 +1,4 @@
+<!--este componenete es lo primero que ve el admin al iniciar sesion-->
 <ul>
     <div id="cajaa" *ngFor="let item of lista" >
         
@@ -12,6 +13,7 @@
             </ul>
         </div>
     </div>
+    <!--presionar el boton lleva al componente admin-ver-reclamos-->
     <button id="reclamos" (click)="VerReclamos()" mat-raised-button color="primary">VER RECLAMOS</button>
     <li>
         <button id="salir" type="submit"  (click)="salir()" mat-raised-button color="warn">Salir</button>

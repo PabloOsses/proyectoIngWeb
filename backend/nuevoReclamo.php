@@ -1,4 +1,6 @@
 <?php
+/*Este archivo es un POST ,se conecta al servicio reclamoscliente
+y envia los datos de un nuevo reclamo a la base de datos*/
 include("db.php");
 /*Corresponde al POST */
 header('Content-type: application/json');

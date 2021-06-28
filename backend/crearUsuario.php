@@ -1,4 +1,6 @@
 <?php
+/*Este archivo es un POST ,se conecta al servicio crearcliente
+y envia los datos de un nuevo cliente a la base de datos*/
 include("db.php");
 /*Corresponde al POST */
 header('Content-type: application/json');

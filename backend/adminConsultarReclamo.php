@@ -1,16 +1,14 @@
 <?php
+/*Este archivo es un GET ,se conecta al servicio admin-ed-reclamo
+y envia los datos de un reclamo especifico al frontend*/
 include("db.php");
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *'); 
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-$json=file_get_contents('php://input');//HE AQUI EL PROBLEMA 
+$json=file_get_contents('php://input');
 
 
 
-
-/*echo $_GET["correo"];
-echo $_GET["password"];
-*/
 $id=$_GET["id"];
 
 $query = "SELECT * FROM reclamo where id=$id";

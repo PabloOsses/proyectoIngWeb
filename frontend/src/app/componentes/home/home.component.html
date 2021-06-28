@@ -1,6 +1,8 @@
+<!--LOGIN, PAGINA INICIAL-->
 <form [formGroup]="formulario"  >
     <div id="caja0" >
         <ul>
+            
             <li>
                 <label for="correo">Correo electronico</label>
                 <input type="text" formControlName="correo" value="example@mail.com" required>
@@ -11,16 +13,27 @@
                 <input type="text" formControlName="password" required>
             </li>
             <li>
+                <!--Boton para login-->
+                <!--PRESIONAR EL BOTON (en caso de ser valido) ENVIA AL COMPONENTE CLIENTE VER RECLAMOS--> 
+                <button id="ingresar" type="submit" [disabled]="formulario.invalid"  (click)="ingresar()" mat-raised-button color="primary">Iniciar Sesion</button>
+                
+            </li>
+            <!--PRESIONAR EL BOTON "CREAR USUARIO" LLEVA AL COMPONENTE CREAR-USUARIO-->
+            <li>
                 <a [routerLink]="['/crear']" routerLinkActive="router-link-active">
                     <button  type="submit" mat-raised-button color="primary">Crear Usuario</button>
                 </a>
             </li>
+            
             <li>
-                <!--Boton para crear nota -->
-                   
-                <button id="ingresar" type="submit" [disabled]="formulario.invalid"  (click)="ingresar()" mat-raised-button color="primary">Iniciar Sesion</button>
+                <!--Boton para recuperar-->
+                <!--PRESIONAR EL BOTON  ENVIA AL COMPONENTE RECUPERAR--> 
+                <button id="recuperar" type="submit"  (click)="recuperar()" mat-raised-button color="primary">Recuperar contraseña</button>
                 
             </li>
         </ul>
     </div>
 </form>
+
+           
+  

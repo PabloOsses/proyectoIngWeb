@@ -1,4 +1,7 @@
 <?php
+/*Este archivo es un GET ,se conecta al servicio reclamoscliente
+y envia los datos de todos los reclamos de un usuario especifico 
+al frontend*/
 include("db.php");
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *'); 
