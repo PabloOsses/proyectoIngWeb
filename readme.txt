@@ -20,7 +20,7 @@ en un solo archivo SQL.
 
 En el peor de los casos donde ninguna de las opciones funcione, 
 escribo aqui el script de la base de datos mas los INSERT de 
-los datos del administrador y de un cliente. 
+los datos del administrador, más un cliente junto con un reclamo para este cliente. 
 
 
 CREATE DATABASE sistemareclamos;
@@ -57,3 +57,35 @@ VALUES ('10000-0', 'admin', 'administrador','Calle 34','valparaiso','Casablanca'
 use sistemareclamos;
 INSERT INTO usuario
 VALUES ('3333-3', 'Esteban', 'Gonzales','Av Bienvenida 234','valparaiso','Casablanca','esteb@gmail.com',md5('dolphin'),'cliente');
+
+use sistemareclamos;
+INSERT INTO reclamo
+VALUES (1, (SELECT rut from usuario WHERE rut='3333-3'), 'Solicitud generica','Alta','Solicito reunion','Requiero reunion para discucion urgente','Abierto','NONE');
+
+
+>En el caso de que se haya podido importar la base de datos adjunta en las carpetas, escribo los respectivos login de cada usuario:
+
+-admin : 
+correo :admin@admin.com
+contraseña: 1234
+
+-cliente 1:
+correo: bob@gmail.com
+contraseña: clave
+
+-cliente 2:
+correo: pepe@hotmail.com
+contraseña: sus
+
+-cliente 3:
+correo: esteb@gmail.com
+contraseña: dolphin
+
+
+Por ultimo advertir, que para implememtar el captcha se utilizo:
+
+-npm install --save jquery
+-npm install --save @types/jquery
+
+DICHO ESTO , NO SE LOGRO IMPLEMETAR EL CAPTCHA
+

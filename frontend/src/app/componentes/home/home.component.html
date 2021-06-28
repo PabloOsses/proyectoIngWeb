@@ -10,7 +10,10 @@
             <li>
                 <label for="password">Contraseña</label>
 
-                <input type="text" formControlName="password" required>
+                <input type="text" formControlName="password" required matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
             </li>
             <li>
                 <!--Boton para login-->

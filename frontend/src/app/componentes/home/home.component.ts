@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   lista:Array<String>=[];
   textoform:string='';
   imagen:string='';
-  
+  hide = true;
   constructor(private fb:FormBuilder, private route:ActivatedRoute, private login:LoginService) {
     this.formulario=this.fb.group({
       correo:["",[Validators.required, Validators.maxLength(30), Validators.email]],

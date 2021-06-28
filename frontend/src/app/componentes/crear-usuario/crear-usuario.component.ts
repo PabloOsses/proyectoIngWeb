@@ -3,10 +3,7 @@ import {FormGroup,FormBuilder, Validators, AbstractControl} from '@angular/forms
 import {ActivatedRoute} from '@angular/router';
 import {Cliente} from '../../interfaces/cliente';
 import {CrearclienteService} from '../../servicios/crearcliente.service';
-interface Alert {
-  type: string;
-  message: string;
-}
+
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
@@ -34,16 +31,7 @@ export class CrearUsuarioComponent implements OnInit {
   hide = true;
   hide2 = true;
 
-  ALERTS: Alert[] = [{
-    type: 'rutt',
-    message: 'This is an success alert',
-  }, {
-    type: 'info',
-    message: 'This is an info alert',
-  }, {
-    type: 'warning',
-    message: 'This is a warning alert',
-  }]
+  
   
   constructor(private fb:FormBuilder, private route:ActivatedRoute,private servicioCliente:CrearclienteService) {
     this.formulario=this.fb.group({
